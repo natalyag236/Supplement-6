@@ -28,7 +28,18 @@ def test_normal_arr():
     assert abs(calculated_std_dev - std_dev) < 0.1
 
 def cramer(coeff_matrix, constants):
- 
+    """Solves a sytem of linear equations using Creamer's rule
+
+    Args:
+        coeff_matrix (numpy.ndarry): A square matrix representinf the coefficients of the linear sysystem
+        constants (numpy.ndarray): A 1D array representing the constants
+
+    Raises:
+        ValueError: if the determinat of the coefficient matriz is zero
+
+    Returns:
+        numpy.ndarray: A 1D array containing the values of the variables
+    """
     det_A = np.linalg.det(coeff_matrix)
     if np.isclose(det_A, 0):
         raise ValueError("Has no unique solution.")
