@@ -70,15 +70,17 @@ def test_cramer():
 
     assert np.allclose(solution, expected_solution)
 
+
+
 def test_generate_even_odd():
     shape = (8, 8)
     even_indexes, odd_indexes, array = generate_even_odd(shape, low=0, high=20)
 
     for idx in even_indexes:
-        assert array[idx[0], idx[1] % 2 == 0]
+        assert array[idx[0], idx[1]] % 2 == 0
 
     for idx in odd_indexes:
-        assert array[idx[0], idx[1] % 2 != 0]
+        assert array[idx[0], idx[1]] % 2 != 0
 
 
 
