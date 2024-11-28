@@ -70,7 +70,13 @@ def test_cramer():
 
     assert np.allclose(solution, expected_solution)
 
+def generate_even_odd(shape, low=0, high=10):
+    array = np.random.randint(low, high, size=shape)
 
+    even_indexes = np.argwhere(array % 2 == 0)
+    odd_indexes = np.argwhere(array % 2 != 0)
+
+    return even_indexes.tolist(), odd_indexes.tolist(),array
 
 def test_generate_even_odd():
     shape = (8, 8)
