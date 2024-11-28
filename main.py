@@ -26,3 +26,15 @@ def test_normal_arr():
 
     calculated_std_dev = np.std(array)
     assert abs(calculated_std_dev - std_dev) < 0.1
+
+def test_cramer():
+    A = np.array([[2, -1, 3,],
+                  [1, 1, 1]
+                  [3, -2, 4]])
+    B = np.array([5, 6, 8])
+
+    excepted = np.array([1, 2, 3])
+
+    solution = cramer(A, B)
+
+    assert np.allclose(solution, excepted)
