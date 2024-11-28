@@ -1,5 +1,15 @@
 import numpy as np
 def  normal_arr(shape, mean=0, std_dev=1):
+    """Generate an array of normally distributed random numbers.
+
+    Args:
+        shape (tuple of int): the desired shape of the output array 
+        mean (int, optional): the mean  of the normal distribution. Defaults to 0.
+        std_dev (int, optional): the standard deviation of the normal distribution. Defaults to 1.
+
+    Returns:
+        np.ndarray: an array of normally distributed random numbers withthe specified shape, mean, and standard deviation
+    """
     return np.random.normal(loc=mean, scale=std_dev, size=shape)
 
 def test_normal_arr():
