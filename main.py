@@ -71,6 +71,19 @@ def test_cramer():
     assert np.allclose(solution, expected_solution)
 
 def generate_even_odd(shape, low=0, high=10):
+    """Generates an array of random integers with the specificed shape ane separtes
+
+    Args:
+        shape (tuple): the shape of the array to generate
+        low (int, optional): the lower bound of the random integers. Defaults to 0.
+        high (int, optional): the upper bound of the random integers. Defaults to 10.
+
+    Returns:
+        tuple containing: 
+            - even_indexes: a list of tuples containing the indexes of the even numbers
+            - odd_indexes: a list of tuples containing the indexes of the odd numbers
+            - array: the generated array of random integers
+    """
     array = np.random.randint(low, high, size=shape)
 
     even_indexes = np.argwhere(array % 2 == 0)
