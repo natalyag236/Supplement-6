@@ -27,7 +27,22 @@ def test_normal_arr():
     calculated_std_dev = np.std(array)
     assert abs(calculated_std_dev - std_dev) < 0.1
 
-
+def cramer(coeff_matrix, constants):
+ 
+    det_A = np.linalg.det(coeff_matrix)
+    if np.isclose(det_A, 0):
+        raise ValueError("Has no unique solution.")
+        
+    n = coeff_matrix.shape[1]
+    solutions = np.zeros(n)
+    
+    for i in range(n):
+        mod_matrix = coeff_matrix.copy()
+        mod_matrix[:, i] = constants
+        det_modified = np.linalg.det(mod_matrix)
+        solutions[i] = det_modified / det_A
+    
+    return solutions
 
 
 def test_cramer():
