@@ -1,4 +1,6 @@
 import numpy as np
+def  normal_arr(shape, mean=0, std_dev=1):
+    return np.random.normal(loc=mean, scale=std_dev, size=shape)
 
 def test_normal_arr():
     shape = (500,500)
